@@ -35,7 +35,7 @@ button { font: inherit; }
 .site-head { min-height: 74px; border-bottom: 1px solid var(--line); }
 .wordmark { font: 800 1.06rem/1 var(--display); letter-spacing: .2em; text-transform: uppercase; text-decoration: none; }
 .navigation, .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.65rem; }
-.navigation a, .button, .small-link, .media-label, .site-foot {
+.navigation a, .button, .small-link, .site-foot {
   font: 500 .76rem/1.35 var(--mono);
   letter-spacing: .045em;
   text-transform: uppercase;
@@ -190,7 +190,8 @@ h2 { font-size: clamp(2.4rem, 5vw, 4.75rem); line-height: .92; }
   border-left: .85rem solid currentColor;
 }
 .poster:hover .play { background: #8c2019; }
-.media-label { margin-top: 1rem; color: var(--muted); }
+.playthrough { margin-top: clamp(2.5rem, 6vw, 4rem); }
+.playthrough h2 { font-size: clamp(1.85rem, 3.6vw, 3.3rem); margin-bottom: 1rem; }
 .about h2 { font-size: clamp(2rem, 3.35vw, 3.45rem); }
 .about p, .download p { margin-top: .75rem; color: var(--muted); }
 .download { margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
@@ -256,24 +257,39 @@ h2 { font-size: clamp(2.4rem, 5vw, 4.75rem); line-height: .92; }
 
     <div class="main-content">
       <div class="details wrap">
-        <figure class="trailer" id="trailer" aria-labelledby="trailer-title">
-          <h2 id="trailer-title">Trailer</h2>
-          <div class="film">
-            <div class="player">
-              <button class="poster" type="button" aria-label="Play trailer">
-                <img src="https://img.itch.zone/aW1nLzE4MDAyMDEuanBn/original/k3p6Kh.jpg" alt="" loading="lazy">
-                <span class="play" aria-hidden="true"></span>
-              </button>
-              <noscript>
-                <style>.poster { display: none; }</style>
-                <iframe src="https://www.youtube.com/embed/mbYWAIqo6PQ" title="I’m Still Here trailer" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              </noscript>
+        <div>
+          <section class="trailer" id="trailer" aria-labelledby="trailer-title">
+            <h2 id="trailer-title">Trailer</h2>
+            <div class="film">
+              <div class="player">
+                <button class="poster" type="button" aria-label="Play trailer">
+                  <img src="https://img.itch.zone/aW1nLzE4MDAyMDEuanBn/original/k3p6Kh.jpg" alt="" loading="lazy">
+                  <span class="play" aria-hidden="true"></span>
+                </button>
+                <noscript>
+                  <style>.poster { display: none; }</style>
+                  <iframe src="https://www.youtube.com/embed/mbYWAIqo6PQ" title="I’m Still Here trailer" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </noscript>
+              </div>
             </div>
-          </div>
-          <figcaption class="media-label">
-            Played by <a class="small-link" href="https://www.youtube.com/watch?v=fIXcbxdPCuc">Markiplier <span aria-hidden="true">↗</span></a>
-          </figcaption>
-        </figure>
+          </section>
+
+          <section class="playthrough" aria-labelledby="playthrough-title">
+            <h2 id="playthrough-title">Played by Markiplier</h2>
+            <div class="film">
+              <div class="player">
+                <iframe
+                  src="https://www.youtube.com/embed/fIXcbxdPCuc"
+                  title="Markiplier plays I’m Still Here"
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+            <p id="local-playthrough" hidden><a class="small-link" href="https://www.youtube.com/watch?v=fIXcbxdPCuc">Watch Markiplier’s playthrough</a></p>
+          </section>
+        </div>
 
         <div>
           <section class="about" aria-labelledby="about-title">
@@ -297,6 +313,11 @@ h2 { font-size: clamp(2.4rem, 5vw, 4.75rem); line-height: .92; }
   </footer>
 
   <script>
+    if (window.location.protocol === 'file:') {
+      document.querySelector('.playthrough .film').hidden = true;
+      document.querySelector('#local-playthrough').hidden = false;
+    }
+
     const download = document.querySelector('#game-download');
     download.addEventListener('submit', event => {
       event.preventDefault();
