@@ -21,96 +21,332 @@
       --display: "Bricolage Grotesque", system-ui, sans-serif;
       --body: "DM Sans", system-ui, sans-serif;
     }
-    *, *::before, *::after { box-sizing: border-box; }
-    [hidden] { display: none !important; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--paper); color: var(--text); font: 1rem/1.6 var(--body); }
-    h1, h2, h3, p, figure { margin: 0; }
-    a { color: inherit; }
-    a:focus-visible { outline: 2px solid #9c4e1b; outline-offset: 5px; }
-    .wrap { width: min(1160px, calc(100% - 96px)); margin-inline: auto; }
-    .header, .footer { display: flex; justify-content: space-between; align-items: center; gap: 1rem 2rem; }
-    .header { min-height: 76px; border-bottom: 1px solid var(--rule); }
-    .wordmark {
-      display: inline-flex; align-items: center; gap: .64rem;
-      font: 800 1.27rem/1 var(--display); letter-spacing: -.035em; text-decoration: none;
+
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--text);
+      font: 1rem/1.6 var(--body);
+    }
+
+    h1, h2, h3, p, figure {
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 2px solid #9c4e1b;
+      outline-offset: 5px;
+    }
+
+    .wrap {
+      width: min(1160px, calc(100% - 96px));
+      margin-inline: auto;
+    }
+
+    .header, .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem 2rem;
+    }
+
+    .header {
+      min-height: 76px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: .64rem;
+      font: 800 1.27rem/1 var(--display);
+      letter-spacing: -.035em;
+      text-decoration: none;
+    }
+
     .wordmark::before {
-      content: ""; width: 1.42rem; height: 1.42rem; border-radius: 50%;
+      content: "";
+      width: 1.42rem;
+      height: 1.42rem;
+      border-radius: 50%;
       background: radial-gradient(circle at 43% 34%, #223428 0 9%, transparent 10%),
         conic-gradient(from 45deg, #e58a41 0deg 40deg, #24973600 41deg 55deg, #cbd7a7 56deg);
     }
-    .navigation { display: flex; align-items: center; gap: clamp(.75rem, 3vw, 2rem); }
-    .navigation a, .footer { font-size: .87rem; font-weight: 600; }
-    .navigation a { text-decoration: none; }
-    .navigation a:hover { text-decoration: underline; text-underline-offset: .25em; }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      gap: clamp(.75rem, 3vw, 2rem);
+    }
+
+    .navigation a, .footer {
+      font-size: .87rem;
+      font-weight: 600;
+    }
+
+    .navigation a {
+      text-decoration: none;
+    }
+
+    .navigation a:hover {
+      text-decoration: underline;
+      text-underline-offset: .25em;
+    }
+
     .hero {
-      display: grid; grid-template-columns: minmax(0, .93fr) minmax(0, 1.07fr);
-      align-items: center; gap: clamp(2rem, 5.5vw, 5.5rem);
+      display: grid;
+      grid-template-columns: minmax(0, .93fr) minmax(0, 1.07fr);
+      align-items: center;
+      gap: clamp(2rem, 5.5vw, 5.5rem);
       padding-block: clamp(3rem, 6vw, 5.5rem) clamp(3.4rem, 7vw, 6.1rem);
     }
+
     .eyebrow {
-      font-weight: 700; color: var(--muted); font-size: .74rem; letter-spacing: .15em; text-transform: uppercase;
+      font-weight: 700;
+      color: var(--muted);
+      font-size: .74rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
       margin-bottom: 1rem;
     }
-    h1, h2, h3 { font-family: var(--display); font-weight: 800; }
-    h1 { font-size: clamp(4.05rem, 8.8vw, 8.6rem); line-height: .83; letter-spacing: -.06em; }
-    h1 span { display: block; color: #3c583c; }
-    .intro { margin-top: 1.55rem; max-width: 29ch; color: var(--muted); font-size: clamp(1.06rem, 1.55vw, 1.24rem); }
-    .actions { display: flex; flex-wrap: wrap; gap: .85rem 1.3rem; align-items: center; margin-top: 1.6rem; }
+
+    h1, h2, h3 {
+      font-family: var(--display);
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(4.05rem, 8.8vw, 8.6rem);
+      line-height: .83;
+      letter-spacing: -.06em;
+    }
+
+    h1 span {
+      display: block;
+      color: #3c583c;
+    }
+
+    .intro {
+      margin-top: 1.55rem;
+      max-width: 29ch;
+      color: var(--muted);
+      font-size: clamp(1.06rem, 1.55vw, 1.24rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .85rem 1.3rem;
+      align-items: center;
+      margin-top: 1.6rem;
+    }
+
     .button {
-      display: inline-flex; min-height: 49px; align-items: center; justify-content: center; gap: .65rem;
-      padding: .68rem 1.05rem; border: 1px solid var(--dark); border-radius: .45rem;
-      background: var(--dark); color: #fffdf4; font-weight: 700; font-size: .93rem; text-decoration: none;
+      display: inline-flex;
+      min-height: 49px;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      padding: .68rem 1.05rem;
+      border: 1px solid var(--dark);
+      border-radius: .45rem;
+      background: var(--dark);
+      color: #fffdf4;
+      font-weight: 700;
+      font-size: .93rem;
+      text-decoration: none;
       transition: background-color .16s, color .16s;
     }
-    .button:hover { background: #344e38; }
-    .text-link { font-size: .91rem; font-weight: 700; text-underline-offset: .25em; }
+
+    .button:hover {
+      background: #344e38;
+    }
+
+    .text-link {
+      font-size: .91rem;
+      font-weight: 700;
+      text-underline-offset: .25em;
+    }
+
     .illustration {
-      overflow: hidden; border: 1px solid #748868; border-radius: .9rem; background: #bdcca7;
+      overflow: hidden;
+      border: 1px solid #748868;
+      border-radius: .9rem;
+      background: #bdcca7;
       box-shadow: 7px 8px 0 #e2e5d2;
     }
-    .illustration img { width: 100%; height: auto; display: block; aspect-ratio: 4 / 3; object-fit: cover; }
-    #features, #download { scroll-margin-top: 1rem; }
-    .features { border-top: 1px solid var(--rule); padding-block: clamp(2.7rem, 6vw, 4.6rem); }
-    h2 { font-size: clamp(2.2rem, 4.7vw, 4rem); line-height: 1; letter-spacing: -.052em; }
+
+    .illustration img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    #features, #video, #download {
+      scroll-margin-top: 1rem;
+    }
+
+    .features, .video {
+      border-top: 1px solid var(--rule);
+      padding-block: clamp(2.7rem, 6vw, 4.6rem);
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 4.7vw, 4rem);
+      line-height: 1;
+      letter-spacing: -.052em;
+    }
+
     .feature-list {
-      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-      list-style: none; margin: 1.7rem 0 0; padding: 0; gap: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      list-style: none;
+      margin: 1.7rem 0 0;
+      padding: 0;
+      gap: 1rem;
     }
-    .feature-list li { padding: clamp(1rem, 2.3vw, 1.7rem); border: 1px solid var(--rule); border-radius: .65rem; }
-    .feature-list h3 { font-size: 1.33rem; letter-spacing: -.035em; line-height: 1.1; }
-    .feature-list p { margin-top: .65rem; color: var(--muted); }
+
+    .feature-list li {
+      padding: clamp(1rem, 2.3vw, 1.7rem);
+      border: 1px solid var(--rule);
+      border-radius: .65rem;
+    }
+
+    .feature-list h3 {
+      font-size: 1.33rem;
+      letter-spacing: -.035em;
+      line-height: 1.1;
+    }
+
+    .feature-list p {
+      margin-top: .65rem;
+      color: var(--muted);
+    }
+
+    .video-player {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      margin-top: 1.7rem;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: .65rem;
+      background: var(--dark);
+    }
+
     .download {
-      background: var(--dark); border-radius: .85rem; color: #fffdf2;
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
-      padding: clamp(1.5rem, 4vw, 3rem); gap: 1.25rem 2.5rem;
+      background: var(--dark);
+      border-radius: .85rem;
+      color: #fffdf2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      gap: 1.25rem 2.5rem;
     }
-    .download p { margin-top: .66rem; color: #ced9c7; }
-    .download h2 { font-size: clamp(2rem, 4vw, 3.45rem); }
-    .download .actions { margin: 0; }
-    .download .button { background: var(--lime); border-color: var(--lime); color: var(--dark); }
-    .download .button:hover { background: #edf4b2; }
-    .download a:focus-visible { outline-color: var(--lime); }
-    .footer { min-height: 100px; padding-block: 1.25rem; color: var(--muted); flex-wrap: wrap; }
-    .footer a { text-underline-offset: .2em; }
+
+    .download p {
+      margin-top: .66rem;
+      color: #ced9c7;
+    }
+
+    .download h2 {
+      font-size: clamp(2rem, 4vw, 3.45rem);
+    }
+
+    .download .actions {
+      margin: 0;
+    }
+
+    .download .button {
+      background: var(--lime);
+      border-color: var(--lime);
+      color: var(--dark);
+    }
+
+    .download .button:hover {
+      background: #edf4b2;
+    }
+
+    .download a:focus-visible {
+      outline-color: var(--lime);
+    }
+
+    .footer {
+      min-height: 100px;
+      padding-block: 1.25rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      text-underline-offset: .2em;
+    }
+
     @media (max-width: 900px) {
-      .wrap { width: calc(100% - 56px); }
+      .wrap {
+        width: calc(100% - 56px);
+      }
     }
+
     @media (max-width: 680px) {
-      .wrap { width: calc(100% - 36px); }
-      .header { min-height: 63px; }
-      .wordmark { font-size: 1.1rem; gap: .4rem; }
-      .wordmark::before { width: 1.15rem; height: 1.15rem; }
-      .navigation a { font-size: .81rem; }
-      .hero { grid-template-columns: 1fr; gap: 2.1rem; padding-top: 2.85rem; }
-      h1 { font-size: clamp(3.5rem, 15vw, 6.15rem); }
-      .feature-list { grid-template-columns: 1fr; }
-      .footer { min-height: 82px; gap: .4rem 1.3rem; }
+      .wrap {
+        width: calc(100% - 36px);
+      }
+      .header {
+        min-height: 63px;
+      }
+      .wordmark {
+        font-size: 1.1rem;
+        gap: .4rem;
+      }
+      .wordmark::before {
+        width: 1.15rem;
+        height: 1.15rem;
+      }
+      .navigation a {
+        font-size: .81rem;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2.1rem;
+        padding-top: 2.85rem;
+      }
+      h1 {
+        font-size: clamp(3.5rem, 15vw, 6.15rem);
+      }
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+      .footer {
+        min-height: 82px;
+        gap: .4rem 1.3rem;
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        transition: none !important;
+      }
     }
   </style>
 </head>
@@ -142,19 +378,45 @@
     <section class="features" id="features" aria-labelledby="features-title">
       <h2 id="features-title">What the goose gets up to</h2>
       <ul class="feature-list">
-        <li><h3>Grabs your cursor</h3><p>If you get on its nerves, it may run off with your mouse pointer.</p></li>
-        <li><h3>Tracks in mud</h3><p>Follow the trail of little webbed footprints across your screen.</p></li>
-        <li><h3>Drops off surprises</h3><p>Expect the occasional meme or message in Goose Notepad.</p></li>
+        <li>
+          <h3>Grabs your cursor</h3>
+          <p>If you get on its nerves, it may run off with your mouse pointer.</p>
+        </li>
+        <li>
+          <h3>Tracks in mud</h3>
+          <p>Follow the trail of little webbed footprints across your screen.</p>
+        </li>
+        <li>
+          <h3>Drops off surprises</h3>
+          <p>Expect the occasional meme or message in Goose Notepad.</p>
+        </li>
       </ul>
+    </section>
+
+    <section class="video" id="video" aria-labelledby="video-title">
+      <h2 id="video-title">See the goose in action</h2>
+      <iframe
+        class="video-player"
+        src="https://www.youtube-nocookie.com/embed/EQx6fyrZDWM"
+        title="I made Desktop Goose."
+        width="560"
+        height="315"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="encrypted-media; picture-in-picture"
+        allowfullscreen
+      ></iframe>
     </section>
 
     <section class="download" id="download" aria-labelledby="download-title">
       <div>
         <h2 id="download-title">Get Desktop Goose</h2>
-        <p id="download-status">Original download for Windows.</p>
+        <p>Windows build hosted on GitHub Releases.</p>
       </div>
       <div class="actions">
-        <a id="github-download" class="button" hidden>Download for Windows <span aria-hidden="true">↓</span></a>
+        <a class="button" href="https://github.com/3dsbrowser/3dsbrowser.github.io/releases/download/ergergwefwq/DesktopGoose.exe">
+          Download for Windows <span aria-hidden="true">↓</span>
+        </a>
       </div>
     </section>
   </main>
@@ -162,29 +424,5 @@
   <footer class="footer wrap">
     <a href="#top">Back to top ↑</a>
   </footer>
-
-  <script>
-    // Paste your direct GitHub Release asset URL between the quotes.
-    // Example: https://github.com/OWNER/REPO/releases/download/v1.0/DesktopGoose.exe
-    const GITHUB_DOWNLOAD_URL = "https://github.com/3dsbrowser/3dsbrowser.github.io/releases/download/ergergwefwq/DesktopGoose.exe";
-
-    if (GITHUB_DOWNLOAD_URL.trim()) {
-      try {
-        const releaseUrl = new URL(GITHUB_DOWNLOAD_URL.trim());
-        const releaseAsset = /^\/[^/]+\/[^/]+\/releases\/(?:download\/[^/]+|latest\/download)\/[^/]+$/;
-        if (releaseUrl.origin === "https://github.com" && releaseAsset.test(releaseUrl.pathname)) {
-          const download = document.querySelector("#github-download");
-          download.href = releaseUrl.href;
-          download.hidden = false;
-
-          const officialDownload = document.querySelector("#official-download");
-          officialDownload.className = "text-link";
-          document.querySelector("#download-status").textContent = "Windows build hosted on GitHub Releases.";
-        }
-      } catch {
-        // Keep the original download available during configuration.
-      }
-    }
-  </script>
 </body>
 </html>
