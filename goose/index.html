@@ -45,7 +45,7 @@
       color: inherit;
     }
 
-    a:focus-visible {
+    a:focus-visible, button:focus-visible {
       outline: 2px solid #9c4e1b;
       outline-offset: 5px;
     }
@@ -275,6 +275,9 @@
     }
 
     .download .button {
+      font-family: inherit;
+      line-height: inherit;
+      cursor: pointer;
       background: var(--lime);
       border-color: var(--lime);
       color: var(--dark);
@@ -284,7 +287,7 @@
       background: #edf4b2;
     }
 
-    .download a:focus-visible {
+    .download .button:focus-visible {
       outline-color: var(--lime);
     }
 
@@ -413,11 +416,11 @@
         <h2 id="download-title">Get Desktop Goose</h2>
         <p>Windows build hosted on GitHub Releases.</p>
       </div>
-      <div class="actions">
-        <a class="button" href="https://github.com/3dsbrowser/3dsbrowser.github.io/releases/download/ergergwefwq/DesktopGoose.exe">
+      <form class="actions" action="https://github.com/3dsbrowser/3dsbrowser.github.io/releases/download/ergergwefwq/DesktopGoose.exe" method="get">
+        <button class="button" type="submit">
           Download for Windows <span aria-hidden="true">↓</span>
-        </a>
-      </div>
+        </button>
+      </form>
     </section>
   </main>
 
